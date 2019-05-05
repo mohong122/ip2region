@@ -43,7 +43,9 @@ typedef unsigned int uint_t;
 typedef unsigned long ulong_t;
 
 #define INDEX_BLOCK_LENGTH 12
-#define TOTAL_HEADER_LENGTH 4096
+
+//thats 8 * 1024
+#define TOTAL_HEADER_LENGTH 8192
 
 /*
  * ip2region properties struct
@@ -78,7 +80,7 @@ typedef datablock_entry * datablock_t;
  * @param	ip2rObj
  * @param	dbFile path
 */
-IP2R_API uint_t ip2region_create(ip2region_t, char *);
+IP2R_API uint_t ip2region_create(ip2region_t, const char *);
 
 /**
  * destroy the specified ip2region object
@@ -96,7 +98,7 @@ IP2R_API uint_t ip2region_destroy(ip2region_t);
  * @date    2016/06/30
 */
 IP2R_API uint_t ip2region_memory_search(ip2region_t, uint_t, datablock_t);
-IP2R_API uint_t ip2region_memory_search_string(ip2region_t, char *, datablock_t);
+IP2R_API uint_t ip2region_memory_search_string(ip2region_t, const char *, datablock_t);
 
 
 /**
@@ -108,7 +110,7 @@ IP2R_API uint_t ip2region_memory_search_string(ip2region_t, char *, datablock_t)
  * @return	uint_t
 */
 IP2R_API uint_t ip2region_binary_search(ip2region_t, uint_t, datablock_t);
-IP2R_API uint_t ip2region_binary_search_string(ip2region_t, char *, datablock_t);
+IP2R_API uint_t ip2region_binary_search_string(ip2region_t, const char *, datablock_t);
 
 /**
  * get the region associated with the specified ip address with b-tree algorithm
@@ -119,7 +121,7 @@ IP2R_API uint_t ip2region_binary_search_string(ip2region_t, char *, datablock_t)
  * @return	uint_t
 */
 IP2R_API uint_t ip2region_btree_search(ip2region_t, uint_t, datablock_t);
-IP2R_API uint_t ip2region_btree_search_string(ip2region_t, char *, datablock_t);
+IP2R_API uint_t ip2region_btree_search_string(ip2region_t, const char *, datablock_t);
 
 /**
  * get a unsinged long(4bytes) from a specified buffer start from the specified offset
@@ -128,7 +130,7 @@ IP2R_API uint_t ip2region_btree_search_string(ip2region_t, char *, datablock_t);
  * @param	offset
  * @return	uint_t
 */
-IP2R_API uint_t getUnsignedInt(char *, int);
+IP2R_API uint_t getUnsignedInt(const char *, int);
 
 /**
  * string ip to long
@@ -136,7 +138,7 @@ IP2R_API uint_t getUnsignedInt(char *, int);
  * @param	ip
  * @return	uint_t
 */
-IP2R_API uint_t ip2long(char *);
+IP2R_API uint_t ip2long(const char *);
 
 /**
  * long to string ip
